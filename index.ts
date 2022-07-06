@@ -24,5 +24,20 @@ const obj1: IDescription = {
   male: true,
 }
 
-console.log('Hello TypeScript')
-console.log(obj1)
+interface Res {
+  code: 10000 | 10001 | 50000;
+  status: 'sucess' | 'failure';
+  date: any;
+}
+
+// 枚举
+enum constants {
+  home = 'home',
+  seting = 'seting',
+}
+
+// 常量枚举
+const enum Items { }
+
+
+console.log(constants.home)
