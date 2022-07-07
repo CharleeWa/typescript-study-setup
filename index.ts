@@ -40,4 +40,52 @@ enum constants {
 const enum Items { }
 
 
-console.log(constants.home)
+const foo: (name: string) => number = function (name) {
+  return name.length
+}
+
+// 使用类型别名将函数声明抽离出来
+type FuncFoo = (name: string) => number
+
+const foo1: FuncFoo = (name) => {
+  return name.length
+}
+
+interface FuncFooStruct {
+  (name:string): number
+}
+
+// 在函数逻辑中注入可选参数默认值
+function foo2(name: string, age?:number): number { 
+  const inputAge = age
+  return name.length + inputAge
+}
+
+// 直接为可选参数声明默认值
+function foo3(name: string, age: number = 18): number {
+  const inputAge = age
+  return name.length + inputAge
+}
+
+// 重载
+
+// function func(foo: number, bar?: boolean): string | number { 
+//   if (bar) {
+//     return String(foo)
+//   } else { 
+//     return foo * 599
+//   }
+// }
+
+// 重载优化（函数重载签名）
+
+function func(foo: number, bar: true): string
+function func(foo: number, bar?: false): number
+function func(foo: number, bar?: boolean): string | number {
+  if (bar) {
+    return String(foo)
+  } else { 
+    return foo * 599
+  }
+}
+
