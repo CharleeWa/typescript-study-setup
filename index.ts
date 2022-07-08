@@ -89,3 +89,23 @@ function func(foo: number, bar?: boolean): string | number {
   }
 }
 
+
+class Foo {
+  prop: string
+
+  constructor(inputProp: string) {
+    this.prop = inputProp
+  }
+
+  print(addon: string): void {
+    console.log(`${this.prop} and ${addon}`)
+  }
+
+  get propA(): string {
+    return `${this.prop} + A`
+  }
+
+  set propA(value: string) {
+    this.propA = `${value} + A`
+  }
+}
