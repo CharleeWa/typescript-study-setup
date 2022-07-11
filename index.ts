@@ -109,3 +109,34 @@ class Foo {
     this.propA = `${value} + A`
   }
 }
+
+// 继承、实现、抽象类
+
+class Base {
+  print() { }
+} // 基类
+class Derived extends Base {
+  override print() {
+    super.print()
+  }
+} // 派生类
+
+
+// 抽象类
+abstract class AbsFoo { 
+  abstract absProp: string
+  abstract get absGetter(): string
+  abstract absMethod(name: string): string
+}
+
+class Foo2 implements AbsFoo {
+  absProp: string = ''
+
+  get absGetter() {
+    return ''
+  }
+
+  absMethod(name: string) {
+    return name
+  }
+}
