@@ -140,3 +140,22 @@ class Foo2 implements AbsFoo {
     return name
   }
 }
+
+
+// 防止AnyScript
+// 如果是类型不兼容报错导致你使用 any，考虑用类型断言替代，我们下面就会开始介绍类型断言的作用。
+// 如果是类型太复杂导致你不想全部声明而使用 any，考虑将这一处的类型去断言为你需要的最简类型。
+// 如你需要调用 foo.bar.baz()，就可以先将 foo 断言为一个具有 bar 方法的类型。
+// 如果你是想表达一个未知类型，更合理的方式是使用 unknown。
+
+let unknownVar: unknown = 'cwang'
+unknownVar = false
+// const var1: string = unknownVar // Error
+
+// 类型别名
+type UnionWithNever = 'cang' | 599 | true | void | never;
+
+// 类型断言：在ts类型分析不正确或者不符合预期时
+const duanyan: string | number = '123'
+// console.log(duanyan as string)
+
