@@ -153,9 +153,54 @@ unknownVar = false
 // const var1: string = unknownVar // Error
 
 // 类型别名
-type UnionWithNever = 'cang' | 599 | true | void | never;
+type UnionWithNever = 'cang' | 599 | true | void | never;     
 
 // 类型断言：在ts类型分析不正确或者不符合预期时
 const duanyan: string | number = '123'
 // console.log(duanyan as string)
+
+// 类型别名
+type A = string;
+
+// 抽离一组联合类型
+type StatusCode = 200 | 301 | 400 | 500 | 502
+type PossibleDataTypes = string | number | (() => unknown);
+
+const code:StatusCode = 502
+
+// 抽离一个函数类型
+type Handler = (e: Event) => void;
+
+const clickHandler: Handler = (e) => {};
+
+type Factory<T> = T | number | string;
+
+const foo4: Factory<boolean> = true;
+
+type FactoryWithBool = Factory<boolean>;
+
+const foo5: FactoryWithBool = true;
+
+type MaybeNull<T> = T | null;
+
+function process2(input: MaybeNull<{handle: () => {}}>) {
+  input?.handle();
+}
+
+// 交叉类型
+
+interface NameStruct {
+  name: string
+}
+
+interface AgeStruct {
+  age: number
+}
+
+type PorfileStruct = NameStruct & AgeStruct
+
+const profile: PorfileStruct = {
+  name: 'cwang',
+  age: 18
+}
 
