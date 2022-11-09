@@ -204,3 +204,14 @@ const profile: PorfileStruct = {
   age: 18
 }
 
+// typeof
+
+// typeof profile
+
+function isString(input: unknown): boolean {
+  return typeof input === 'string'
+}
+
+// 类型控制流分析做不到跨函数上下文来进行类型的信息收集
+// 实际上，将判断逻辑封装起来提取到函数外部进行复用非常常见。
+// 为了解决这一类型控制流分析的能力不足， TypeScript 引入了 is 关键字来显式地提供类型信息
